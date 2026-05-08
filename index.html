@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>OTONDO 제품 추가 요청</title>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <p class="eyebrow">OTONDO REQUEST PAGE</p>
+        <h1>제품 추가 요청 등록</h1>
+        <p class="desc">
+          입력 후 <strong>요청 등록</strong> 버튼을 누르면 Google Sheet의 TEST 시트에 자동 등록됩니다.
+        </p>
+      </div>
+    </header>
+
+    <main class="card">
+      <form id="requestForm">
+        <section class="section">
+          <h2>1. 요청 기본 정보</h2>
+
+          <div class="grid">
+            <div class="field">
+              <label for="requester">요청자 <span>*</span></label>
+              <input id="requester" name="requester" type="text" placeholder="예: 박준영" required />
+            </div>
+
+            <div class="field">
+              <label for="category">구분</label>
+              <input id="category" name="category" type="text" value="라이브러리" />
+            </div>
+
+            <div class="field">
+              <label for="worker">담당자</label>
+              <input id="worker" name="worker" type="text" value="김동훈" />
+            </div>
+
+            <div class="field">
+              <label for="due_date">마감일</label>
+              <input id="due_date" name="due_date" type="date" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="content">요청 내용 <span>*</span></label>
+            <textarea id="content" name="content" rows="3" placeholder="예: 하부 오픈 선반장 추가" required></textarea>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label for="extra_content">추가 내용</label>
+              <input id="extra_content" name="extra_content" type="text" placeholder="예: 하부 오픈 선반장 추가" />
+            </div>
+
+            <div class="field">
+              <label for="note">비고</label>
+              <input id="note" name="note" type="text" placeholder="예: 시스템, 에디션" />
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>2. 제품 정보</h2>
+
+          <div class="grid">
+            <div class="field">
+              <label for="PRDT_NM">PRDT_NM</label>
+              <input id="PRDT_NM" name="PRDT_NM" type="text" placeholder="제품명" />
+            </div>
+
+            <div class="field">
+              <label for="PRDT_CD">PRDT_CD <span>*</span></label>
+              <input id="PRDT_CD" name="PRDT_CD" type="text" placeholder="제품 코드" required />
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>3. 사이즈 정보</h2>
+
+          <div class="size-group">
+            <h3>W</h3>
+            <div class="grid three">
+              <div class="field">
+                <label for="W_MIN">W최소</label>
+                <input id="W_MIN" name="W_MIN" type="text" inputmode="decimal" />
+              </div>
+
+              <div class="field">
+                <label for="W_MAX">W최대</label>
+                <input id="W_MAX" name="W_MAX" type="text" inputmode="decimal" />
+              </div>
+
+              <div class="field">
+                <label for="W">W</label>
+                <input id="W" name="W" type="text" inputmode="decimal" />
+              </div>
+            </div>
+          </div>
+
+          <div class="size-group">
+            <h3>D</h3>
+            <div class="grid three">
+              <div class="field">
+                <label for="D_MIN">D최소</label>
+                <input id="D_MIN" name="D_MIN" type="text" inputmode="decimal" />
+              </div>
+
+              <div class="field">
+                <label for="D_MAX">D최대</label>
+                <input id="D_MAX" name="D_MAX" type="text" inputmode="decimal" />
+              </div>
+
+              <div class="field">
+                <label for="D">D</label>
+                <input id="D" name="D" type="text" inputmode="decimal" />
+              </div>
+            </div>
+          </div>
+
+          <div class="size-group">
+            <h3>H</h3>
+            <div class="grid three">
+              <div class="field">
+                <label for="H_MIN">H최소</label>
+                <input id="H_MIN" name="H_MIN" type="text" inputmode="decimal" />
+              </div>
+
+              <div class="field">
+                <label for="H_MAX">H최대</label>
+                <input id="H_MAX" name="H_MAX" type="text" inputmode="decimal" />
+              </div>
+
+              <div class="field">
+                <label for="H">H</label>
+                <input id="H" name="H" type="text" inputmode="decimal" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>4. 가격 / 발주 정보</h2>
+
+          <div class="grid three">
+            <div class="field">
+              <label for="PRICE_COST">가격1(원가)</label>
+              <input id="PRICE_COST" name="PRICE_COST" type="text" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="PRICE_SUPPLY">가격2(공급)</label>
+              <input id="PRICE_SUPPLY" name="PRICE_SUPPLY" type="text" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="PRICE_RETAIL">가격3(소가)</label>
+              <input id="PRICE_RETAIL" name="PRICE_RETAIL" type="text" inputmode="decimal" />
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label for="ORDER_AVAILABLE">주문가능여부</label>
+              <input id="ORDER_AVAILABLE" name="ORDER_AVAILABLE" type="text" placeholder="예: 가능 / 불가" />
+            </div>
+
+            <div class="field">
+              <label for="ORDER_TYPE">발주유형</label>
+              <input id="ORDER_TYPE" name="ORDER_TYPE" type="text" placeholder="예: 자체 / 외주 / 확인 필요" />
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>5. 시공비 / 계산 정보</h2>
+
+          <div class="grid three">
+            <div class="field">
+              <label for="INSTALL_COST">시공비(원가)</label>
+              <input id="INSTALL_COST" name="INSTALL_COST" type="text" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="INSTALL_SUPPLY">시공비(공급가)</label>
+              <input id="INSTALL_SUPPLY" name="INSTALL_SUPPLY" type="text" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="INSTALL_RETAIL">시공비(소비자가)</label>
+              <input id="INSTALL_RETAIL" name="INSTALL_RETAIL" type="text" inputmode="decimal" />
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="field">
+              <label for="PRICE_LOGIC">가격계산로직</label>
+              <input id="PRICE_LOGIC" name="PRICE_LOGIC" type="text" placeholder="예: MM / MM2 / 영커" />
+            </div>
+
+            <div class="field">
+              <label for="MATERIAL_UNIT_PRICE">물대단가</label>
+              <input id="MATERIAL_UNIT_PRICE" name="MATERIAL_UNIT_PRICE" type="text" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="INSTALL_UNIT_PRICE">시공단가</label>
+              <input id="INSTALL_UNIT_PRICE" name="INSTALL_UNIT_PRICE" type="text" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+              <label for="SUPPLY_MARGIN">공급가마진율</label>
+              <input id="SUPPLY_MARGIN" name="SUPPLY_MARGIN" type="text" inputmode="decimal" placeholder="예: 40" />
+            </div>
+
+            <div class="field">
+              <label for="DISTRIBUTION_MARGIN">유통마진율</label>
+              <input id="DISTRIBUTION_MARGIN" name="DISTRIBUTION_MARGIN" type="text" inputmode="decimal" placeholder="예: 20" />
+            </div>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="button" class="secondary" id="resetBtn">초기화</button>
+          <button type="submit" class="primary" id="submitBtn">요청 등록</button>
+        </div>
+
+        <p id="statusMessage" class="status-message"></p>
+      </form>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
