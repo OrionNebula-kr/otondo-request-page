@@ -1,6 +1,6 @@
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5seD6eNbx_WEJkKajolTMfA6NzUFNUp8UX0UTwO3uuy8rAwQ_U_9WwzM6O9jN5lNh/exec";
 
-const TARGET_SHEET_NAME = "TEST";
+const TARGET_SHEET_NAME = "추가";
 
 const form = document.getElementById("requestForm");
 const submitBtn = document.getElementById("submitBtn");
