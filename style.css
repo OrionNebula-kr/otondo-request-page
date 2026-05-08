@@ -106,7 +106,8 @@ h3 {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   border: 1px solid #34425f;
   border-radius: 10px;
@@ -123,9 +124,20 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: #7894ff;
   box-shadow: 0 0 0 3px rgba(120, 148, 255, 0.18);
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+}
+
+select option {
+    background: #11182a;
+    color: #f2f5fb;
 }
 
 input::placeholder,
